@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,21 +63,27 @@
             color: #ce93d8;
             animation: fadeIn 6s ease-in-out;
         }
-        @media (max-width: 600px) {
-            .mobile-only {
-                display: block;
-            }
-        }
-        @media (min-width: 601px) {
-            .mobile-only {
-                display: none;
-            }
-        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
     </style>
+    <script>
+        function checkiOS() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const downloadText = document.getElementById('download-text');
+            const downloadButton = document.getElementById('download-button');
+            if (isIOS) {
+                downloadText.style.display = 'block';
+                downloadButton.style.display = 'block';
+            } else {
+                downloadText.style.display = 'none';
+                downloadButton.style.display = 'none';
+                document.getElementById('ios-warning').style.display = 'block';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', checkiOS);
+    </script>
 </head>
 <body>
     <div class="container">
@@ -95,14 +100,14 @@
             </ul>
         </div>
         
-        <div class="mobile-only">
-            <p>To use, you first need the IOS shortcut</p>
-            <div class="button-container">
-                <button class="download-button" onclick="window.open('https://example.com', '_blank')">Download</button>
-            </div>
-            <div class="info">
-                <p>You need to be on iOS to download the shortcut. If you are on iPad, please press the two A's at the top and then press 'Request Mobile Website'</p>
-            </div>
+        <div id="download-text" class="info" style="display:none;">
+            <p>To use, you first need the iOS shortcut</p>
+        </div>
+        <div class="button-container" id="download-button" style="display:none;">
+            <button class="download-button" onclick="window.open('https://example.com', '_blank')">Download</button>
+        </div>
+        <div class="info" id="ios-warning" style="display:none;">
+            <p>You need to be on iOS to download the shortcut. If you are on iPad, please press the two A's at the top and then press 'Request Mobile Website'</p>
         </div>
 
         <div class="info">
