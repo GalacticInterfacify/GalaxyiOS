@@ -1,0 +1,104 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GalaxyiOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: #343a40;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .description {
+            font-size: 1em;
+            margin-bottom: 50px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .plans {
+            font-size: 1.1em;
+            margin-bottom: 50px;
+            animation: fadeIn 4s ease-in-out;
+        }
+        .button-container {
+            margin: 20px 0;
+            animation: fadeIn 5s ease-in-out;
+        }
+        .download-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .info {
+            font-size: 1em;
+            margin-bottom: 50px;
+            animation: fadeIn 6s ease-in-out;
+        }
+        @media (max-width: 600px) {
+            .mobile-only {
+                display: block;
+            }
+        }
+        @media (min-width: 601px) {
+            .mobile-only {
+                display: none;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GalaxyiOS</h1>
+        <div class="subtitle">Experience unparalleled control over your device.</div>
+        <div class="description">A control center PWA that teams with a shortcut to give you ultimate power over iOS.</div>
+        
+        <div class="plans">
+            <p>Plans:</p>
+            <ul style="list-style-type:none; padding: 0;">
+                <li>Epic UI 😎</li>
+                <li>Theming</li>
+                <li>App signing or just an ipa library</li>
+            </ul>
+        </div>
+        
+        <div class="mobile-only">
+            <p>To use, you first need the IOS shortcut</p>
+            <div class="button-container">
+                <button class="download-button" onclick="window.open('https://example.com', '_blank')">Download</button>
+            </div>
+            <div class="info">
+                <p>You need to be on iOS to download the shortcut. If you are on iPad, please press the two A's at the top and then press 'Request Mobile Website'</p>
+            </div>
+        </div>
+
+        <div class="info">
+            <p>First, download the shortcut, run it, and you will be guided through the rest!</p>
+        </div>
+    </div>
+</body>
+</html>
