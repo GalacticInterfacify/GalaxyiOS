@@ -3,210 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galaxy - Ultimate Control Over iOS</title>
+    <title>iOS Style Buttons</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8f8f8;
             margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #6a1b9a, #8e24aa);
-            color: #ffffff;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100vh;
-            text-align: center;
         }
-        .container {
-            max-width: 600px;
-            margin: 20px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            color: #f3e5f5;
-        }
+
         .button-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             width: 100%;
-            position: fixed;
-            bottom: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            z-index: 1000;
-        }
-        .control-button {
-            background-color: #d81b60;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .control-button img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        .button-text {
-            color: #ffffff;
-            font-size: 0.8em;
-        }
-        .button-text-container {
+            max-width: 400px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 5px;
         }
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            z-index: 1000;
-        }
-        .popup-content {
-            background: #8e24aa;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .popup button {
-            background-color: #d81b60;
+
+        .ios-button {
+            width: 90%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #007AFF;
             color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             cursor: pointer;
+            border: none;
+            outline: none;
             transition: background-color 0.3s;
         }
-        .popup button:hover {
-            background-color: #ad1457;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        .ios-button:active {
+            background-color: #005BB5;
         }
     </style>
-    <link rel="manifest" href="/manifest.json">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Galaxy">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash_screens/11__iPad_Pro_M4_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/13__iPad_Pro_M4_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash_screens/10.9__iPad_Air_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash_screens/13__iPad_Pro_M4_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/iPhone_8__iPhone_7__iPhone_6s__iPhone_6__4.7__iPhone_SE_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/11__iPad_Pro_M4_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/10.9__iPad_Air_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash_screens/10.9__iPad_Air_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash_screens/11__iPad_Pro_M4_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/13__iPad_Pro_M4_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/10.9__iPad_Air_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_13_mini__iPhone_12_mini__iPhone_11_Pro__iPhone_XS__iPhone_X_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="splash_screens/iPhone_8_Plus__iPhone_7_Plus__iPhone_6s_Plus__iPhone_6_Plus_landscape.png">
-    <link rel="apple-touch-startup-image" media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/4__iPhone_SE__iPod_touch_5th_generation_and_later_portrait.png">
 </head>
 <body>
-    <div class="container">
-        <h1>Galaxy</h1>
-        <p>news:<br>initial launch!</p>
-    </div>
-
-    <!-- Bottom Bar -->
     <div class="button-container">
-        <button class="control-button" onclick="window.location.href = 'https://galaxyiosdownload.vercel.app/download.html';">
-            <img src="/assets/button1.png" alt="Home"> Home
-        </button>
-        <button class="control-button" onclick="openFeature('Feature2');">
-            <img src="/assets/button2.png" alt="Control"> C̷o̶n̴t̴r̸o̴l̴
-        </button>
-        <button class="control-button" onclick="openFeature('Feature3');">
-            <img src="/assets/button3.png" alt="Apps"> Apps
-        </button>
-        <button class="control-button" onclick="openShortcuts();">
-            <img src="/assets/button4.png" alt="Settings"> Settings
-        </button>
+        <button class="ios-button">Button 1</button>
+        <button class="ios-button">Button 2</button>
+        <button class="ios-button">Button 3</button>
+        <button class="ios-button">Button 4</button>
+        <button class="ios-button">Button 5</button>
+        <button class="ios-button">Button 6</button>
+        <button class="ios-button">Button 7</button>
+        <button class="ios-button">Button 8</button>
+        <button class="ios-button">Button 9</button>
+        <button class="ios-button">Button 10</button>
     </div>
-
-    <!-- Install Popup -->
-    <div id="install-popup" class="popup" style="display:none;">
-        <div class="popup-content">
-            <h2>Install GalaxyiOS</h2>
-            <p>For the best experience, add GalaxyiOS to your home screen.</p>
-            <p>Tap the share icon and select "Add to Home Screen".</p>
-            <button onclick="closePopup()">Close</button>
-        </div>
-    </div>
-
-    <script>
-        function openFeature(feature) {
-            alert('Feature not available in initial launch.');
-        }
-
-        function openShortcuts() {
-            window.location.href = 'shortcuts://run-shortcut?name=GalaxyCenter&input=settings';
-        }
-
-        function closePopup() {
-            document.getElementById('install-popup').style.display = 'none';
-        }
-
-        // PWA Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
-                    console.error('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-    </script>
 </body>
 </html>
