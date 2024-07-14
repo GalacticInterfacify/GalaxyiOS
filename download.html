@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galaxy - install</title>
 
-   
-
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -19,14 +17,13 @@
             height: 100vh; 
         }
 
-         h1 {
+        h1 {
             color: black;
             text-align: center;
             padding: 25px;
             width: 50%;
             -webkit-text-stroke-width: 3px;
             -webkit-text-stroke-color: white;
-            
         }
 
         .button-container {
@@ -64,8 +61,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Galaxy">
-    <!-- Splash Screens -->
-   <link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png">
+    <link rel="apple-touch-startup-image" media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png">
 <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="splash_screens/11__iPad_Pro_M4_landscape.png">
 <link rel="apple-touch-startup-image" media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/9.7__iPad_Pro__7.9__iPad_mini__9.7__iPad_Air__9.7__iPad_portrait.png">
 <link rel="apple-touch-startup-image" media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png">
@@ -104,40 +100,28 @@
 <link rel="apple-touch-startup-image" media="screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="splash_screens/iPhone_14_Plus__iPhone_13_Pro_Max__iPhone_12_Pro_Max_portrait.png">
 <link rel="apple-touch-startup-image" media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="splash_screens/11__iPad_Pro__10.5__iPad_Pro_portrait.png">
 
-    
 </head>
 <body>
 
     <h1>Galaxy</h1>
-    <h3>Please make sure this is added to your home screen! Some functionality depends on it!</h3>
+    <h3 id="home-screen-message">Please make sure this is added to your home screen! Some functionality depends on it!</h3>
     <div class="button-container">
-    <button class="ios-button" onclick="window.location.href='https://www.example.com'">Galaxy Links</button>
+        <button class="ios-button" onclick="window.location.href='https://www.example.com'">Galaxy Links</button>
         <br>
         <br>
-    <button class="ios-button" onclick="window.location.href='https://www.example.com'">Utilities</button>
-    <button class="ios-button" onclick="window.location.href='https://www.example.com'">IPA Library</button>
-    <button class="ios-button" onclick="window.location.href='https://www.example.com'">PWA Library</button>
-    <button class="ios-button" onclick="window.location.href='https://www.example.com'">Shortcut Library</button>
-    <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
-    <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
-    <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
-    <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
-    <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
-</div>
+        <button class="ios-button" onclick="window.location.href='https://www.example.com'">Utilities</button>
+        <button class="ios-button" onclick="window.location.href='https://www.example.com'">IPA Library</button>
+        <button class="ios-button" onclick="window.location.href='https://www.example.com'">PWA Library</button>
+        <button class="ios-button" onclick="window.location.href='https://www.example.com'">Shortcut Library</button>
+        <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
+        <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
+        <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
+        <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
+        <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
+    </div>
 
     <script>
-         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
-                    console.error('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-    </script>
-    <script>
-   if ('serviceWorker' in navigator) {
+        if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
@@ -147,6 +131,12 @@
             });
         }
 
+        // Check if the app is running as a PWA
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+            document.getElementById('home-screen-message').style.display = 'none';
+        }
     </script>
 </body>
 </html>
+
+
