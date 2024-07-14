@@ -4,6 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iOS Style Buttons</title>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        #pwa-prompt {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .pwa-prompt-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .pwa-prompt-content img {
+            width: 20px;
+            height: 20px;
+        }
+
+        #pwa-close-btn {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .small-text {
+            font-size: 0.8em;
+            color: #ccc;
+            margin-top: 5px;
+        }
+    </style>
+
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -104,19 +153,30 @@
     
 </head>
 <body>
+     
+    <div id="pwa-prompt" class="hidden">
+        <div class="pwa-prompt-content">
+            <p>Please press <img src="assets/share.png" alt="share">, and then press 'Add to Home Screen'.</p>
+            <button id="pwa-close-btn">Close</button>
+            <p class="small-text">(A lot of functionality will break)</p>
+        </div>
+    </div>
+
     <h1>Galaxy</h1>
     <div class="button-container">
-        <button class="ios-button">Button 1</button>
-        <button class="ios-button">Button 2</button>
-        <button class="ios-button">Button 3</button>
-        <button class="ios-button">Button 4</button>
-        <button class="ios-button">Button 5</button>
-        <button class="ios-button">Button 6</button>
-        <button class="ios-button">Button 7</button>
-        <button class="ios-button">Button 8</button>
-        <button class="ios-button">Button 9</button>
-        <button class="ios-button">Button 10</button>
-    </div>
+    <button class="ios-button" onclick="window.location.href='https://www.example.com'">Galaxy Links</button>
+        <br>
+        <br>
+    <button class="ios-button" onclick="window.location.href='https://www.example.com'">Utilities</button>
+    <button class="ios-button" onclick="window.location.href='https://www.example.com'">IPA Library</button>
+    <button class="ios-button" onclick="window.location.href='https://www.example.com'">PWA Library</button>
+    <button class="ios-button" onclick="window.location.href='https://www.example.com'">Shortcut Library</button>
+    <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
+    <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
+    <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
+    <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
+    <button class="ios-button" onclick="window.location.href='https://www.example.com'">coming soon</button>
+</div>
 
     <script>
          if ('serviceWorker' in navigator) {
@@ -126,6 +186,18 @@
                 }, function(err) {
                     console.error('ServiceWorker registration failed: ', err);
                 });
+            });
+        }
+    </script>
+    <script>
+        if (!window.matchMedia('(display-mode: standalone)').matches) {
+            const pwaPrompt = document.getElementById('pwa-prompt');
+            const closeBtn = document.getElementById('pwa-close-btn');
+            
+            pwaPrompt.classList.remove('hidden');
+
+            closeBtn.addEventListener('click', () => {
+                pwaPrompt.classList.add('hidden');
             });
         }
     </script>
