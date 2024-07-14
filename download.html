@@ -191,18 +191,22 @@
         }
     </script>
     <script>
-     document.addEventListener('DOMContentLoaded', function() {
-    if (!window.matchMedia('(display-mode: standalone)').matches && !window.navigator.standalone) {
-        const pwaPrompt = document.getElementById('pwa-prompt');
-        const closeBtn = document.getElementById('pwa-close-btn');
+   document.addEventListener('DOMContentLoaded', function() {
+    const pwaPrompt = document.getElementById('pwa-prompt');
+    const closeBtn = document.getElementById('pwa-close-btn');
 
+    // Check if the app is already installed
+    if (!window.matchMedia('(display-mode: standalone)').matches && !window.navigator.standalone) {
         pwaPrompt.classList.remove('hidden');
 
         closeBtn.addEventListener('click', function() {
             pwaPrompt.classList.add('hidden');
         });
+    } else {
+        pwaPrompt.classList.add('hidden'); // Hide the prompt if already installed
     }
 });
+
 
     </script>
 </body>
