@@ -10,25 +10,24 @@
             display: none;
         }
 
-        #pwa-prompt {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            text-align: center;
-        }
+       #pwa-prompt {
+       position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8); /* semi-transparent black background */
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      }
 
-        .pwa-prompt-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
+     .pwa-prompt-content {
+       text-align: center;
+       color: white;
+       max-width: 80%;
+      padding: 20px;
         }
 
         .pwa-prompt-content img {
