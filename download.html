@@ -191,18 +191,19 @@
         }
     </script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-    if (!window.matchMedia('(display-mode: standalone)').matches) {
+     document.addEventListener('DOMContentLoaded', function() {
+    if (!window.matchMedia('(display-mode: standalone)').matches && !window.navigator.standalone) {
         const pwaPrompt = document.getElementById('pwa-prompt');
         const closeBtn = document.getElementById('pwa-close-btn');
 
         pwaPrompt.classList.remove('hidden');
 
-        closeBtn.addEventListener('click', () => {
+        closeBtn.addEventListener('click', function() {
             pwaPrompt.classList.add('hidden');
         });
     }
 });
+
     </script>
 </body>
 </html>
